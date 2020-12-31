@@ -5,6 +5,7 @@ buildscript {
         roomVersion = '2.2.6'
         roomVersionCompiler = '2.2.5'
         retrofitVersion = '2.9.0'
+        intuitiveVersion = '1.0.6'
         /*archLifecycleVersion = '2.2.0'
         coreTestingVersion = '2.1.0'
         materialVersion = '1.1.0'
@@ -30,6 +31,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url 'https://jitpack.io' }
     }
 }
 
