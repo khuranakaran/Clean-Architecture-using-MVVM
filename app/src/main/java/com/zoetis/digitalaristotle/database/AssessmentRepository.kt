@@ -1,14 +1,17 @@
 package com.zoetis.digitalaristotle.database
 
+import android.content.Context
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.noob.apps.mvvmcountries.interfaces.NetworkResponseCallback
+import com.zoetis.digitalaristotle.app.DigitalAristotle
+import com.zoetis.digitalaristotle.interfaces.NetworkResponseCallback
 import com.zoetis.digitalaristotle.model.Assessment
 import com.zoetis.digitalaristotle.retrofit.RestClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class AssessmentRepository private constructor() {
+class AssessmentRepository() {
     private lateinit var mCallback: NetworkResponseCallback
     private lateinit var mAssessmentList: MutableLiveData<Assessment>
 
@@ -24,14 +27,22 @@ class AssessmentRepository private constructor() {
         }
     }
 
+    fun getAllAnswers(): MutableLiveData<List<AssessmentDB>> {
+        val allAnswers = MutableLiveData<List<AssessmentDB>>()
+        val data = DigitalAristotle.database.assessmentDao().getAllAnswers()
+        allAnswers.postValue(data)
+
+        return allAnswers
+    }
+
     private lateinit var mAssessmentCall: Call<Assessment>
 
-    fun getAssessment(callback: NetworkResponseCallback, forceFetch : Boolean): MutableLiveData<Assessment> {
+    fun getAssessment(
+        callback: NetworkResponseCallback,
+        forceFetch: Boolean
+    ): MutableLiveData<Assessment> {
         mCallback = callback
-       /* if (mAssessmentList.value!!. && !forceFetch) {
-            mCallback.onNetworkSuccess()
-            return mAssessmentList
-        }*/
+        mAssessmentList = MutableLiveData()
         mAssessmentCall = RestClient.getInstance().getApiService().getAssessment()
         mAssessmentCall.enqueue(object : Callback<Assessment> {
             override fun onResponse(call: Call<Assessment>, response: Response<Assessment>) {
@@ -46,5 +57,20 @@ class AssessmentRepository private constructor() {
 
         })
         return mAssessmentList
+    }
+
+    fun insertAnswer(assessmentDB: AssessmentDB): LiveData<AssessmentDB> {
+        val insertAnswer = MutableLiveData<AssessmentDB>()
+        DigitalAristotle.database.assessmentDao().insertAnswer(assessmentDB)
+        insertAnswer.value = assessmentDB
+        return insertAnswer
+    }
+
+    fun getAnswerByQNo(qNo: Int): MutableLiveData<List<AssessmentDB>> {
+        val answer = MutableLiveData<List<AssessmentDB>>()
+        val data = DigitalAristotle.database.assessmentDao().getAnswerByQNo(qNo)
+        answer.postValue(data)
+
+        return answer
     }
 }

@@ -2,4 +2,40 @@
     <string name="app_name">Digital Aristotle</string>
     <string name="app_no_internet_msg">Internet connection is required!</string>
     <string name="a_bottled_mayonnaise">(A) Bottled mayonnaise</string>
+    <string name="enter_your_answer_here">Enter your answer here</string>
+    <string name="instructions">Instructions</string>
+    <string name="read_instructions_carefully_before_starting_the_test">Read instructions carefully before starting the test</string>
+    <string name="_1_mc_type_questions_will_have_variable_number_of_options_the_student_can_choose_from">1. MC type questions will have variable number of options the student can choose from.</string>
+    <string name="_2_sa_type_questions_have_to_be_answered_with_text_and_or_image">2. SA type questions have to be answered with text and/or Image.</string>
+    <string name="_3_image_can_be_clicked_directly_via_camera_or_can_be_selected_from_the_gallery">3. Image can be clicked directly via camera, or can be selected from the gallery.</string>
+    <string name="_4_keep_in_mind_the_duration_of_the_exam">4. Keep in mind the duration of the exam.</string>
+    <string name="_5_test_will_be_submitted_automatically_once_time_runs_out">6. Test will be submitted automatically once time runs out.</string>
+    <string name="_6_swipe_left_right_to_go_to_next_previous_question">7. Swipe Left/Right to go to Next/Previous question.</string>
+    <string name="start_test">Start Test</string>
+    <string name="_5_test_can_not_be_paused">5. Test Can not be paused</string>
+    <string name="subject_science">Subject : Fetching</string>
+    <string name="fetching">Fetching</string>
+    <string name="max_marks_fetching">Max Marks : Fetching</string>
+    <string name="submit_test">Submit Test</string>
+    <string name="dialogTitle">Submit Test</string>
+    <string name="dialogMessage">Are you sure you want to submit the test ?</string>
+
+    <array name="formulas">
+        <item>$=\\frac{40}{100}\\times9000$</item>
+        <item>$x:35::48:60$</item>
+        <item>$x=\\frac{1+y}{1+2z^2}$</item>
+        <item>$$x=\\frac{1+y}{1+2z^2}$$</item>
+        <item>$\\int_0^\\infty e^{-x^2} dx=\\frac{\\sqrt{\\pi}}{2}$</item>
+        <item>$$\int_0^\\infty e^{-x^2} dx=\\frac{\\sqrt{\\pi}}{2}$$</item>
+        <item>$\\displaystyle \\int_0^\\infty e^{-x^2} dx$</item>
+        <item>$\\sqrt{2} \\sin x$</item>
+        <item>$\\int \\!\\! \\int f(x,y)\\,\\mathrm{d}x\\mathrm{d}y$</item>
+        <item>$${n+1\\choose k} = {n\\choose k} + {n \\choose k-1}
+            $$
+        </item>
+    </array>
+    <string name="single_formula">$\\int_0^\\infty e^{-x^2} dx=\\frac{\\sqrt{\\pi}}{2}$</string>
+    <string name="runtime_formula">$${n+1\\choose k} = {n\\choose k} + {n \\choose k-1}$$</string>
+    <string name="not_attempted">Not attempted</string>
+    <string name="warning_finishing_test">Finishing test within 5 seconds</string>
 </resources>

@@ -2,17 +2,27 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zoetis.digitalaristotle">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".app.DigitalAristotle"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.DigitalAristotle">
-        <activity android:name=".view.AssessmentActivity">
+        <activity android:name=".view.EvaluationActivity" />
+        <activity android:name=".view.AssessmentActivity" />
+        <activity android:name=".view.InstructionActivity" />
+        <activity
+            android:name=".view.SplashActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

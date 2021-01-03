@@ -37,13 +37,12 @@
                         android:id="@+id/tvQuestion"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/_10sdp"
                         android:background="#222222"
+                        android:padding="@dimen/_10sdp"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         tools:ignore="WebViewLayout"
                         tools:text="Which one of these foods is likely to contain the most bacteria?" />
-
 
                 </RelativeLayout>
 
@@ -62,8 +61,8 @@
                         android:id="@+id/tvChoice1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
                         android:textColor="@color/black"
+                        android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/bg_unselected"
                         android:padding="@dimen/_10sdp"
                         android:singleLine="true"
@@ -84,8 +83,8 @@
                         android:id="@+id/tvChoice3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
                         android:textColor="@color/black"
+                        android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/bg_unselected"
                         android:padding="@dimen/_10sdp"
                         android:singleLine="true"
@@ -95,8 +94,8 @@
                         android:id="@+id/tvChoice4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
                         android:textColor="@color/black"
+                        android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginBottom="@dimen/_10sdp"
                         android:background="@drawable/bg_unselected"
                         android:padding="@dimen/_10sdp"
@@ -105,34 +104,45 @@
 
                 </LinearLayout>
 
-                <RelativeLayout
+                <LinearLayout
                     android:id="@+id/llSubjective"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     android:padding="@dimen/_10sdp"
                     app:layout_constraintTop_toBottomOf="@id/rlQuestion">
 
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/ivAttach"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_margin="@dimen/_2sdp"
-                        android:src="@drawable/ic_attach_file_24"/>
-
                     <katex.hourglass.in.mathlib.MathView
-                        app:setTextColor="@color/primary_200"
-                        app:setTextSize="14sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         app:setClickable="true"
                         app:setText="@string/single_formula"
-                        android:layout_gravity="center"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        app:setTextColor="@color/primary_200"
+                        app:setTextSize="14sp" />
 
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivSaImage"
+                        android:visibility="gone"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:src="@drawable/bg_selected"/>
 
-                </RelativeLayout>
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvUnanswered"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    android:background="@android:color/holo_red_light"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:text="@string/not_attempted"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

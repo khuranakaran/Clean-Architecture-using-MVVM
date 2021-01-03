@@ -1,4 +1,4 @@
-package com.noob.apps.mvvmcountries.interfaces
+package com.zoetis.digitalaristotle.interfaces
 
 interface NetworkResponseCallback {
     fun onNetworkSuccess()
