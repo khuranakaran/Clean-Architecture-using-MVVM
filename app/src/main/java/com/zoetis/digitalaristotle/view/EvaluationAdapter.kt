@@ -66,38 +66,62 @@ class EvaluationAdapter(val context: AppCompatActivity, private val mViewModel: 
         }
 
         if (answer.isNotEmpty()) {
-            when (answer[0].mcAnswer) {
-                0 -> {
-                    holder.itemBinding.tvUnanswered.visibility = View.GONE
-                    holder.itemBinding.tvChoice1.background =
-                        ContextCompat.getDrawable(context, R.drawable.bg_selected)
-                    holder.itemBinding.tvChoice1.setTextColor(ContextCompat.getColor(context, R.color.white))
+            if (answer[0].type == Constants.MULTI_CHOICE) {
+                when (answer[0].mcAnswer) {
+                    0 -> {
+                        holder.itemBinding.tvUnanswered.visibility = View.GONE
+                        holder.itemBinding.tvChoice1.background =
+                            ContextCompat.getDrawable(context, R.drawable.bg_selected)
+                        holder.itemBinding.tvChoice1.setTextColor(
+                            ContextCompat.getColor(
+                                context,
+                                R.color.white
+                            )
+                        )
 
+                    }
+                    1 -> {
+                        holder.itemBinding.tvChoice2.setTextColor(
+                            ContextCompat.getColor(
+                                context,
+                                R.color.white
+                            )
+                        )
+                        holder.itemBinding.tvUnanswered.visibility = View.GONE
+                        holder.itemBinding.tvChoice2.background =
+                            ContextCompat.getDrawable(context, R.drawable.bg_selected)
+                    }
+                    2 -> {
+                        holder.itemBinding.tvChoice3.setTextColor(
+                            ContextCompat.getColor(
+                                context,
+                                R.color.white
+                            )
+                        )
+                        holder.itemBinding.tvUnanswered.visibility = View.GONE
+                        holder.itemBinding.tvChoice3.background =
+                            ContextCompat.getDrawable(context, R.drawable.bg_selected)
+                    }
+                    3 -> {
+                        holder.itemBinding.tvChoice4.setTextColor(
+                            ContextCompat.getColor(
+                                context,
+                                R.color.white
+                            )
+                        )
+                        holder.itemBinding.tvUnanswered.visibility = View.GONE
+                        holder.itemBinding.tvChoice4.background =
+                            ContextCompat.getDrawable(context, R.drawable.bg_selected)
+                    }
+                    else -> {
+                        holder.itemBinding.tvUnanswered.visibility = View.VISIBLE
+                    }
                 }
-                1 -> {
-                    holder.itemBinding.tvChoice2.setTextColor(ContextCompat.getColor(context, R.color.white))
-                    holder.itemBinding.tvUnanswered.visibility = View.GONE
-                    holder.itemBinding.tvChoice2.background =
-                        ContextCompat.getDrawable(context, R.drawable.bg_selected)
-                }
-                2 -> {
-                    holder.itemBinding.tvChoice3.setTextColor(ContextCompat.getColor(context, R.color.white))
-                    holder.itemBinding.tvUnanswered.visibility = View.GONE
-                    holder.itemBinding.tvChoice3.background =
-                        ContextCompat.getDrawable(context, R.drawable.bg_selected)
-                }
-                3 -> {
-                    holder.itemBinding.tvChoice4.setTextColor(ContextCompat.getColor(context, R.color.white))
-                    holder.itemBinding.tvUnanswered.visibility = View.GONE
-                    holder.itemBinding.tvChoice4.background =
-                        ContextCompat.getDrawable(context, R.drawable.bg_selected)
-                }
-                else -> {
-                    holder.itemBinding.tvUnanswered.visibility = View.VISIBLE
-                }
-            }
+            } else if (answer[0].type == Constants.SUBJECTIVE) {
 
-            if (answer[0].type == Constants.SUBJECTIVE) {
+                if (answer[0].saAnswer != "") {
+                    holder.itemBinding.etSaAnswer.setText(answer[0].saAnswer)
+                }
                 if (answer[0].saImage != "") {
                     holder.itemBinding.ivSaImage.visibility = View.VISIBLE
                     Glide.with(context)
