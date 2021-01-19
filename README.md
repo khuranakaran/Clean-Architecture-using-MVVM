@@ -3,6 +3,7 @@ The main purpose of this app is to show MVVM sample implementation using the new
 
 Beautiful UI, which segregates Multiple Choice Questions and Subjective Type Questions :
 
-![alt text](https://ibb.co/k3S1FyL)
-![alt text](https://ibb.co/0GxCq4S)
-![alt text](https://ibb.co/SsvzCLh)
+![alt text](https://github.com/khuranakaran/MVVM-Tutorial/blob/master/images/image1.jpeg)
+![alt text](https://github.com/khuranakaran/MVVM-Tutorial/blob/master/images/image2.jpeg)
+![alt text](https://github.com/khuranakaran/MVVM-Tutorial/blob/master/images/image3.jpeg)
+
