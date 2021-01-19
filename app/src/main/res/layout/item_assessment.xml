@@ -12,140 +12,230 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_20sdp"
-        android:background="@drawable/grey_curved_boundary">
+        android:layout_height="match_parent">
 
-        <androidx.cardview.widget.CardView
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:cardCornerRadius="@dimen/_5sdp">
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_60sdp">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/_5sdp">
 
-                <RelativeLayout
-                    android:id="@+id/rlQuestion"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    android:background="@drawable/grey_curved_boundary">
 
-                    <org.sufficientlysecure.htmltextview.HtmlTextView
-                        android:id="@+id/tvQuestion"
+                    <RelativeLayout
+                        android:id="@+id/rlQuestion"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="#222222"
                         android:padding="@dimen/_10sdp"
-                        android:textAlignment="center"
-                        android:textColor="@color/white"
-                        tools:ignore="WebViewLayout"
-                        tools:text="Which one of these foods is likely to contain the most bacteria?" />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
-
-                </RelativeLayout>
-
-                <LinearLayout
-                    android:id="@+id/llMultiChoice"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingStart="@dimen/_10sdp"
-                    android:paddingEnd="@dimen/_10sdp"
-                    android:visibility="gone"
-                    app:layout_constraintTop_toBottomOf="@id/rlQuestion">
-
-
-                    <org.sufficientlysecure.htmltextview.HtmlTextView
-                        android:id="@+id/tvChoice1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:background="@drawable/bg_unselected"
-                        android:padding="@dimen/_10sdp"
-                        android:singleLine="true"
-                        android:textColor="@color/black"
-                        tools:text="@string/a_bottled_mayonnaise" />
-
-                    <org.sufficientlysecure.htmltextview.HtmlTextView
-                        android:id="@+id/tvChoice2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:background="@drawable/bg_unselected"
-                        android:padding="@dimen/_10sdp"
-                        android:singleLine="true"
-                        android:textColor="@color/black"
-                        tools:text="@string/a_bottled_mayonnaise" />
-
-                    <org.sufficientlysecure.htmltextview.HtmlTextView
-                        android:id="@+id/tvChoice3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:background="@drawable/bg_unselected"
-                        android:padding="@dimen/_10sdp"
-                        android:singleLine="true"
-                        android:textColor="@color/black"
-                        tools:text="@string/a_bottled_mayonnaise" />
-
-                    <org.sufficientlysecure.htmltextview.HtmlTextView
-                        android:id="@+id/tvChoice4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_marginBottom="@dimen/_10sdp"
-                        android:background="@drawable/bg_unselected"
-                        android:padding="@dimen/_10sdp"
-                        android:singleLine="true"
-                        android:textColor="@color/black"
-                        tools:text="@string/a_bottled_mayonnaise" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/llSubjective"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/grey_curved_boundary"
-                    android:hint="@string/enter_your_answer_here"
-                    android:orientation="vertical"
-                    android:padding="@dimen/_10sdp"
-                    android:visibility="gone"
-                    app:layout_constraintTop_toBottomOf="@id/rlQuestion">
-
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/ivAttach"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/_2sdp"
-                        android:src="@drawable/ic_attach_file_24" />
-
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:background="@drawable/light_grey_curved_boundary"
-                        android:padding="@dimen/_10sdp">
-
-                        <androidx.appcompat.widget.AppCompatEditText
-                            android:id="@+id/etSaAnswer"
+                        <katex.hourglass.in.mathlib.MathView
+                            android:id="@+id/tvQuestion"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@android:color/transparent"
-                            android:layout_gravity="center" />
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            app:setClickable="true"
+                            app:setText="Loading Question..."
+                            app:setTextColor="@color/white"
+                            app:setTextSize="@dimen/_9ssp" />
+
 
                     </RelativeLayout>
 
-                </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/llMultiChoice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:paddingEnd="@dimen/_10sdp"
+                        android:visibility="gone"
+                        app:layout_constraintTop_toBottomOf="@id/rlQuestion">
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                        <LinearLayout
+                            android:id="@+id/llChoice1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@drawable/bg_unselected"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingStart="@dimen/_5sdp"
+                            android:paddingEnd="@dimen/_5sdp">
 
-        </androidx.cardview.widget.CardView>
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/a" />
+
+
+                            <katex.hourglass.in.mathlib.MathView
+                                android:id="@+id/tvChoice1"
+                                app:setClickable="true"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:singleLine="true"
+                                android:textColor="@color/black"
+                                app:setTextSize="@dimen/_7ssp"
+                                tools:text="@string/a_bottled_mayonnaise" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/llChoice2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@drawable/bg_unselected"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingStart="@dimen/_5sdp"
+                            android:paddingEnd="@dimen/_5sdp">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/b" />
+
+
+                            <katex.hourglass.in.mathlib.MathView
+                                android:id="@+id/tvChoice2"
+                                app:setClickable="true"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:singleLine="true"
+                                android:textColor="@color/black"
+                                app:setTextSize="@dimen/_7ssp"
+                                tools:text="@string/a_bottled_mayonnaise" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/llChoice3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@drawable/bg_unselected"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingStart="@dimen/_5sdp"
+                            android:paddingEnd="@dimen/_5sdp">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/c" />
+
+
+                            <katex.hourglass.in.mathlib.MathView
+                                android:id="@+id/tvChoice3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:singleLine="true"
+                                app:setClickable="true"
+                                android:textColor="@color/black"
+                                app:setTextSize="@dimen/_7ssp"
+                                tools:text="@string/a_bottled_mayonnaise" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/llChoice4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:background="@drawable/bg_unselected"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingStart="@dimen/_5sdp"
+                            android:paddingEnd="@dimen/_5sdp">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/d" />
+
+
+                            <katex.hourglass.in.mathlib.MathView
+                                android:id="@+id/tvChoice4"
+                                android:layout_width="match_parent"
+                                app:setClickable="true"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:singleLine="true"
+                                android:textColor="@color/black"
+                                app:setTextSize="@dimen/_7ssp"
+                                tools:text="@string/a_bottled_mayonnaise" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llSubjective"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/grey_curved_boundary"
+                        android:hint="@string/enter_your_answer_here"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_10sdp"
+                        android:visibility="gone"
+                        app:layout_constraintTop_toBottomOf="@id/rlQuestion">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/ivAttach"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_2sdp"
+                            android:src="@drawable/ic_attach_file_24" />
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:background="@drawable/light_grey_curved_boundary"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_10sdp">
+
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/etSaAnswer"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@android:color/transparent" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

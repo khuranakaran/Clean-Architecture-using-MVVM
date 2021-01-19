@@ -4,10 +4,7 @@ import android.annotation.SuppressLint
 import android.text.Editable
 import android.text.TextWatcher
 import android.text.method.PasswordTransformationMethod
-import android.view.LayoutInflater
-import android.view.MotionEvent
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
@@ -66,10 +63,12 @@ class AssessmentAdapter(
     @SuppressLint("ClickableViewAccessibility")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val question = mList.questions[position]
-        holder.itemBinding.tvQuestion.setHtml(
+        /*holder.itemBinding.tvQuestion.setHtml(
             question.text,
             HtmlHttpImageGetter(holder.itemBinding.tvQuestion)
-        )
+        )*/
+
+        holder.itemBinding.tvQuestion.setDisplayText(question.text)
         assessmentDB = AssessmentDB()
         assessmentDB.saAnswer = ""
 
@@ -127,10 +126,10 @@ class AssessmentAdapter(
 
 
     private fun setChoices(question: Question, holder: ViewHolder) {
-        holder.itemBinding.tvChoice1.setHtml("(A) " + question.mcOptions[0])
-        holder.itemBinding.tvChoice2.setHtml("(B) " + question.mcOptions[1])
-        holder.itemBinding.tvChoice3.setHtml("(C) " + question.mcOptions[2])
-        holder.itemBinding.tvChoice4.setHtml("(D) " + question.mcOptions[3])
+        holder.itemBinding.tvChoice1.setDisplayText( question.mcOptions[0])
+        holder.itemBinding.tvChoice2.setDisplayText(question.mcOptions[1])
+        holder.itemBinding.tvChoice3.setDisplayText(question.mcOptions[2])
+        holder.itemBinding.tvChoice4.setDisplayText(question.mcOptions[3])
     }
 
     class ViewHolder(var itemBinding: ItemAssessmentBinding) :
@@ -145,45 +144,45 @@ class AssessmentAdapter(
 
     private fun updateAnswerMC(holder: ViewHolder, position: Int) {
         holder.itemBinding.tvChoice1.setOnClickListener {
-            holder.itemBinding.tvChoice1.background = ContextCompat.getDrawable(
+            holder.itemBinding.llChoice1.background = ContextCompat.getDrawable(
                 context,
                 R.drawable.bg_selected
             )
 
-            holder.itemBinding.tvChoice1.setTextColor(
+           /* holder.itemBinding.tvChoice1.setTextColor(
                 ContextCompat.getColor(
                     context,
                     R.color.white
                 )
             )
-            holder.itemBinding.tvChoice2.setTextColor(
+            holder.itemBinding.llChoice2.setTextColor(
                 ContextCompat.getColor(
                     context,
                     R.color.black
                 )
             )
-            holder.itemBinding.tvChoice3.setTextColor(
+            holder.itemBinding.llChoice3.setTextColor(
                 ContextCompat.getColor(
                     context,
                     R.color.black
                 )
             )
-            holder.itemBinding.tvChoice4.setTextColor(
+            holder.itemBinding.llChoice4.setTextColor(
                 ContextCompat.getColor(
                     context,
                     R.color.black
                 )
-            )
+            )*/
 
-            holder.itemBinding.tvChoice2.background = ContextCompat.getDrawable(
+            holder.itemBinding.llChoice2.background = ContextCompat.getDrawable(
                 context,
                 R.drawable.bg_unselected
             )
-            holder.itemBinding.tvChoice3.background = ContextCompat.getDrawable(
+            holder.itemBinding.llChoice3.background = ContextCompat.getDrawable(
                 context,
                 R.drawable.bg_unselected
             )
-            holder.itemBinding.tvChoice4.background = ContextCompat.getDrawable(
+            holder.itemBinding.llChoice4.background = ContextCompat.getDrawable(
                 context,
                 R.drawable.bg_unselected
             )
@@ -192,45 +191,45 @@ class AssessmentAdapter(
             setAnswerAs(0, question)
         }
 
-        holder.itemBinding.tvChoice2.setOnClickListener {
-            holder.itemBinding.tvChoice1.background = ContextCompat.getDrawable(
+        holder.itemBinding.llChoice2.setOnClickListener {
+            holder.itemBinding.llChoice1.background = ContextCompat.getDrawable(
                 context,
                 R.drawable.bg_unselected
             )
 
-            holder.itemBinding.tvChoice1.setTextColor(
+            /*holder.itemBinding.llChoice1.setTextColor(
                 ContextCompat.getColor(
                     context,
                     R.color.black
                 )
             )
-            holder.itemBinding.tvChoice2.setTextColor(
+            holder.itemBinding.llChoice2.setTextColor(
                 ContextCompat.getColor(
                     context,
                     R.color.white
                 )
             )
-            holder.itemBinding.tvChoice3.setTextColor(
+            holder.itemBinding.llChoice3.setTextColor(
                 ContextCompat.getColor(
                     context,
                     R.color.black
                 )
             )
-            holder.itemBinding.tvChoice4.setTextColor(
+            holder.itemBinding.llChoice4.setTextColor(
                 ContextCompat.getColor(
                     context,
                     R.color.black
                 )
-            )
-            holder.itemBinding.tvChoice2.background = ContextCompat.getDrawable(
+            )*/
+            holder.itemBinding.llChoice2.background = ContextCompat.getDrawable(
                 context,
                 R.drawable.bg_selected
             )
-            holder.itemBinding.tvChoice3.background = ContextCompat.getDrawable(
+            holder.itemBinding.llChoice3.background = ContextCompat.getDrawable(
                 context,
                 R.drawable.bg_unselected
             )
-            holder.itemBinding.tvChoice4.background = ContextCompat.getDrawable(
+            holder.itemBinding.llChoice4.background = ContextCompat.getDrawable(
                 context,
                 R.drawable.bg_unselected
             )
@@ -239,45 +238,45 @@ class AssessmentAdapter(
             setAnswerAs(1, question)
         }
 
-        holder.itemBinding.tvChoice3.setOnClickListener {
-            holder.itemBinding.tvChoice1.setTextColor(
+        holder.itemBinding.llChoice3.setOnClickListener {
+            /*holder.itemBinding.llChoice1.setTextColor(
                 ContextCompat.getColor(
                     context,
                     R.color.black
                 )
             )
-            holder.itemBinding.tvChoice2.setTextColor(
+            holder.itemBinding.llChoice2.setTextColor(
                 ContextCompat.getColor(
                     context,
                     R.color.black
                 )
             )
-            holder.itemBinding.tvChoice3.setTextColor(
+            holder.itemBinding.llChoice3.setTextColor(
                 ContextCompat.getColor(
                     context,
                     R.color.white
                 )
             )
-            holder.itemBinding.tvChoice4.setTextColor(
+            holder.itemBinding.llChoice4.setTextColor(
                 ContextCompat.getColor(
                     context,
                     R.color.black
                 )
-            )
+            )*/
 
-            holder.itemBinding.tvChoice1.background = ContextCompat.getDrawable(
+            holder.itemBinding.llChoice1.background = ContextCompat.getDrawable(
                 context,
                 R.drawable.bg_unselected
             )
-            holder.itemBinding.tvChoice2.background = ContextCompat.getDrawable(
+            holder.itemBinding.llChoice2.background = ContextCompat.getDrawable(
                 context,
                 R.drawable.bg_unselected
             )
-            holder.itemBinding.tvChoice3.background = ContextCompat.getDrawable(
+            holder.itemBinding.llChoice3.background = ContextCompat.getDrawable(
                 context,
                 R.drawable.bg_selected
             )
-            holder.itemBinding.tvChoice4.background = ContextCompat.getDrawable(
+            holder.itemBinding.llChoice4.background = ContextCompat.getDrawable(
                 context,
                 R.drawable.bg_unselected
             )
@@ -286,46 +285,46 @@ class AssessmentAdapter(
             setAnswerAs(2, question)
         }
 
-        holder.itemBinding.tvChoice4.setOnClickListener {
+        holder.itemBinding.llChoice4.setOnClickListener {
 
-            holder.itemBinding.tvChoice1.setTextColor(
+           /* holder.itemBinding.llChoice1.setTextColor(
                 ContextCompat.getColor(
                     context,
                     R.color.black
                 )
             )
-            holder.itemBinding.tvChoice2.setTextColor(
+            holder.itemBinding.llChoice2.setTextColor(
                 ContextCompat.getColor(
                     context,
                     R.color.black
                 )
             )
-            holder.itemBinding.tvChoice3.setTextColor(
+            holder.itemBinding.llChoice3.setTextColor(
                 ContextCompat.getColor(
                     context,
                     R.color.black
                 )
             )
-            holder.itemBinding.tvChoice4.setTextColor(
+            holder.itemBinding.llChoice4.setTextColor(
                 ContextCompat.getColor(
                     context,
                     R.color.white
                 )
             )
-
-            holder.itemBinding.tvChoice1.background = ContextCompat.getDrawable(
+*/
+            holder.itemBinding.llChoice1.background = ContextCompat.getDrawable(
                 context,
                 R.drawable.bg_unselected
             )
-            holder.itemBinding.tvChoice2.background = ContextCompat.getDrawable(
+            holder.itemBinding.llChoice2.background = ContextCompat.getDrawable(
                 context,
                 R.drawable.bg_unselected
             )
-            holder.itemBinding.tvChoice3.background = ContextCompat.getDrawable(
+            holder.itemBinding.llChoice3.background = ContextCompat.getDrawable(
                 context,
                 R.drawable.bg_unselected
             )
-            holder.itemBinding.tvChoice4.background = ContextCompat.getDrawable(
+            holder.itemBinding.llChoice4.background = ContextCompat.getDrawable(
                 context,
                 R.drawable.bg_selected
             )

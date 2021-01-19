@@ -59,10 +59,10 @@ class EvaluationAdapter(val context: AppCompatActivity, private val mViewModel: 
 
     private fun setChoices(question: Question, holder: ViewHolder, answer: List<AssessmentDB>) {
         if (question.type == Constants.MULTI_CHOICE) {
-            holder.itemBinding.tvChoice1.setHtml("(A) " + question.mcOptions[0])
-            holder.itemBinding.tvChoice2.setHtml("(B) " + question.mcOptions[1])
-            holder.itemBinding.tvChoice3.setHtml("(C) " + question.mcOptions[2])
-            holder.itemBinding.tvChoice4.setHtml("(D) " + question.mcOptions[3])
+            holder.itemBinding.tvChoice1.setDisplayText( question.mcOptions[0])
+            holder.itemBinding.tvChoice2.setDisplayText(question.mcOptions[1])
+            holder.itemBinding.tvChoice3.setDisplayText(question.mcOptions[2])
+            holder.itemBinding.tvChoice4.setDisplayText(question.mcOptions[3])
         }
 
         if (answer.isNotEmpty()) {
@@ -70,47 +70,22 @@ class EvaluationAdapter(val context: AppCompatActivity, private val mViewModel: 
                 when (answer[0].mcAnswer) {
                     0 -> {
                         holder.itemBinding.tvUnanswered.visibility = View.GONE
-                        holder.itemBinding.tvChoice1.background =
+                        holder.itemBinding.llChoice1.background =
                             ContextCompat.getDrawable(context, R.drawable.bg_selected)
-                        holder.itemBinding.tvChoice1.setTextColor(
-                            ContextCompat.getColor(
-                                context,
-                                R.color.white
-                            )
-                        )
-
                     }
                     1 -> {
-                        holder.itemBinding.tvChoice2.setTextColor(
-                            ContextCompat.getColor(
-                                context,
-                                R.color.white
-                            )
-                        )
                         holder.itemBinding.tvUnanswered.visibility = View.GONE
-                        holder.itemBinding.tvChoice2.background =
+                        holder.itemBinding.llChoice2.background =
                             ContextCompat.getDrawable(context, R.drawable.bg_selected)
                     }
                     2 -> {
-                        holder.itemBinding.tvChoice3.setTextColor(
-                            ContextCompat.getColor(
-                                context,
-                                R.color.white
-                            )
-                        )
                         holder.itemBinding.tvUnanswered.visibility = View.GONE
-                        holder.itemBinding.tvChoice3.background =
+                        holder.itemBinding.llChoice3.background =
                             ContextCompat.getDrawable(context, R.drawable.bg_selected)
                     }
                     3 -> {
-                        holder.itemBinding.tvChoice4.setTextColor(
-                            ContextCompat.getColor(
-                                context,
-                                R.color.white
-                            )
-                        )
                         holder.itemBinding.tvUnanswered.visibility = View.GONE
-                        holder.itemBinding.tvChoice4.background =
+                        holder.itemBinding.llChoice4.background =
                             ContextCompat.getDrawable(context, R.drawable.bg_selected)
                     }
                     else -> {
@@ -137,9 +112,8 @@ class EvaluationAdapter(val context: AppCompatActivity, private val mViewModel: 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val question = mList.questions[position]
-        holder.itemBinding.tvQuestion.setHtml(
-            question.text,
-            HtmlHttpImageGetter(holder.itemBinding.tvQuestion)
+        holder.itemBinding.tvQuestion.setDisplayText(
+            question.text
         )
 
         assessmentDB = AssessmentDB()

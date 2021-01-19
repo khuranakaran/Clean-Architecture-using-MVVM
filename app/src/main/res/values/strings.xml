@@ -38,4 +38,8 @@
     <string name="runtime_formula">$${n+1\\choose k} = {n\\choose k} + {n \\choose k-1}$$</string>
     <string name="not_attempted">Not attempted</string>
     <string name="warning_finishing_test">Finishing test within 5 seconds</string>
+    <string name="a">(A)</string>
+    <string name="b">(B)</string>
+    <string name="c">(C)</string>
+    <string name="d">(D)</string>
 </resources>
